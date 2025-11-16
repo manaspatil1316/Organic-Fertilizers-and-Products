@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reviews — Organic Fertilizers & Products</title>
+
+  <!-- ACTION: Link the main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ACTION: Link JS for interactions (modal + nav + a11y) -->
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+  <!-- Skip to content for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="logo" href="index.html" aria-label="OrganicCare home">
+      <img src="img/logo.svg" alt="OrganicCare logo" />
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks" role="menu">
+      <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+      <li role="none"><a role="menuitem" href="products.html">Products</a></li>
+      <li role="none"><a role="menuitem" href="about.html">About</a></li>
+      <li role="none"><a role="menuitem" href="reviews.html" aria-current="page">Reviews</a></li>
+      <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+      <li role="none"><a class="cta-btn" href="products.html">Shop Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main id="main" class="section" role="main" aria-labelledby="reviews-heading">
+    <header style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>
+        <h1 id="reviews-heading">International Reviews & Testimonials</h1>
+        <p class="small-note">Farmer feedback, NGO trials, and expert reviews from around the world.</p>
+      </div>
+
+      <!-- Quick filters (non-functional placeholder - you may wire JS) -->
+      <div style="display:flex;gap:8px;align-items:center">
+        <label for="filter-country" class="small-note" style="margin-right:6px">Filter by country:</label>
+        <select id="filter-country" aria-label="Filter reviews by country">
+          <option value="">All</option>
+          <option value="in">India</option>
+          <option value="es">Spain</option>
+          <option value="jp">Japan</option>
+          <option value="us">USA</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Review grid -->
+    <section aria-label="Reviews list" style="margin-top:18px">
+      <div class="reviews-grid">
+
+        <!-- REVIEW CARD 1 -->
+        <article class="review-card" tabindex="0" aria-labelledby="r1-title" aria-describedby="r1-desc">
+          <img src="farmericon.png.png" alt="Profile of Maria">
+          <div>
+            <h3 id="r1-title">Maria González — Farmer, Spain</h3>
+            <p id="r1-desc">“After switching to OrganicCare vermicompost, our greenhouse tomatoes had heavier fruits, and water retention improved. Local yield went up ~18% in 3 months.”</p>
+            <p style="margin-top:8px;color:var(--muted)">Verified purchase • Jan 2025</p>
+          </div>
+        </article>
+
+        <!-- REVIEW CARD 2 -->
+        <article class="review-card" tabindex="0" aria-labelledby="r2-title" aria-describedby="r2-desc">
+          <img src="farmericon.png.png" alt="Profile of Hiroshi">
+          <div>
+            <h3 id="r2-title">Hiroshi Watanabe — Organic Farm, Japan</h3>
+            <p id="r2-desc">“Excellent quality and consistent nutrient profile. The neem booster reduced pest damage without harming beneficial insects.”</p>
+            <p style="margin-top:8px;color:var(--muted)">Field trial • Nov 2024</p>
+          </div>
+        </article>
+
+        <!-- REVIEW CARD 3 -->
+        <article class="review-card" tabindex="0" aria-labelledby="r3-title" aria-describedby="r3-desc">
+          <img src="farmericon.png.png" alt="Profile of Daniel">
+          <div>
+            <h3 id="r3-title">Daniel Smith — Horticulturalist, USA</h3>
+            <p id="r3-desc">“Natural and easy-to-use. Great customer support and helpful guidance for smallholder farmers.”</p>
+            <p style="margin-top:8px;color:var(--muted)">Independent review • Aug 2024</p>
+          </div>
+        </article>
+
+        <!-- REVIEW CARD 4 (NGO Trial) -->
+        <article class="review-card" tabindex="0" aria-labelledby="r4-title" aria-describedby="r4-desc">
+          <img src="farmericon.png.png" alt="Profile of NGO reviewer">
+          <div>
+            <h3 id="r4-title">GreenEarth NGO — Pilot Trial (India)</h3>
+            <p id="r4-desc">“Pilot with 50 farmers showed improved soil organic matter and reduced fertilizer costs by 22% over two seasons.”</p>
+            <p style="margin-top:8px;color:var(--muted)">NGO report • Sep 2024</p>
+          </div>
+        </article>
+
+        <!-- REVIEW CARD 5 -->
+        <article class="review-card" tabindex="0" aria-labelledby="r5-title" aria-describedby="r5-desc">
+          <img src="farmericon.png.png" alt="Profile of Marco">
+          <div>
+            <h3 id="r5-title">Marco Rossi — Agronomist, Italy</h3>
+            <p id="r5-desc">“The compost blend improved soil tilth and structure quickly. Recommended for small orchards.”</p>
+            <p style="margin-top:8px;color:var(--muted)">Expert review • May 2024</p>
+          </div>
+        </article>
+
+        <!-- Add more review cards as needed (keep the same structure & aria attributes) -->
+
+      </div>
+    </section>
+
+    <!-- References and published trials -->
+    <section aria-labelledby="refs-heading" style="margin-top:28px">
+      <h2 id="refs-heading">Published Trials & References</h2>
+      <p class="small-note" style="margin-top:8px">
+        ACTION: Replace these placeholders with real links to published trials, NGO reports, and international certifications.
+      </p>
+
+      <ul style="margin-top:12px;line-height:1.6;color:var(--muted)">
+        <li><a href="#" target="_blank" rel="noopener">GreenEarth Pilot Trial — Soil Organic Matter Study (PDF)</a></li>
+        <li><a href="#" target="_blank" rel="noopener">University of Valencia — Vermicompost Effects on Tomato Yield (Journal)</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Japan Farm Research — Neem Booster Field Test (Report)</a></li>
+      </ul>
+
+      <p class="small-note" style="margin-top:12px">
+        Tip: Host your trial reports as PDFs (e.g., `/docs/trial-report-2024.pdf`) and link them here for credibility.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo" style="margin-top:32px">
+    <div class="container">
+      <p>© 2025 OrganicCare — Growing with Nature.</p>
+    </div>
+  </footer>
+</body>
+</html>
