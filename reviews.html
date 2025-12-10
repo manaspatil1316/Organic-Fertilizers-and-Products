@@ -3,49 +3,206 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reviews — Organic Fertilizers & Products</title>
+  <title>Reviews — OrganicCare</title>
 
-  <!-- ACTION: Link the main stylesheet -->
-  <link rel="stylesheet" href="style.css"> 
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
 
-  <!-- ACTION: Link JS for interactions (modal + nav + a11y) -->
-  <script defer src="js/script.js"></script>
+  <!-- Page-specific Styles -->
+  <style>
+    /* ---------------- Global Styles ---------------- */
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #f4f6f8;
+    }
+
+    a {
+      text-decoration: none;
+      color: #1b8833;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      padding: 60px 6%;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 12px 0;
+      color: #1b8833;
+    }
+
+    .small-note {
+      font-size: 14px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    /* ---------------- Navbar ---------------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 6%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+
+    .nav-links a.active, .nav-links a:hover {
+      background: #1b8833;
+      color: #fff;
+    }
+
+    /* ---------------- Review Cards ---------------- */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .review-card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      display: flex;
+      gap: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .review-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+
+    .review-card img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid #1b8833;
+    }
+
+    .review-card div {
+      flex: 1;
+    }
+
+    .review-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #1b8833;
+    }
+
+    .review-card p {
+      font-size: 14px;
+      color: #555;
+      margin: 4px 0;
+    }
+
+    .review-card .review-date {
+      color: #888;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    /* ---------------- Filter ---------------- */
+    .filter-container {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #filter-country {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    /* ---------------- Footer ---------------- */
+    footer {
+      background: #1b8833;
+      color: #fff;
+      text-align: center;
+      padding: 25px 6%;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    /* ---------------- Responsive ---------------- */
+    @media (max-width: 768px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-container {
+        justify-content: flex-start;
+      }
+    }
+  </style>
 </head>
-<body>
-  <!-- Skip to content for keyboard users -->
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- NAVBAR -->
+<body>
+  <!-- Skip Link -->
+  <a class="skip-link" href="#main" style="position:absolute;top:-40px;left:0; background:#1b8833;color:#fff;padding:8px;z-index:100;">Skip to content</a>
+
+  <!-- Navbar -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <a class="logo" href="index.html" aria-label="Organic home">
-      <img src="img/logo.svg" alt="OrganicCare logo" />
+      <img src="./img/Logo.png.png" alt="OrganicCare logo" />
     </a>
-
-    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <ul class="nav-links" id="navLinks" role="menu">
-      <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-      <li role="none"><a role="menuitem" href="products.html">Products</a></li>
-      <li role="none"><a role="menuitem" href="about.html">About</a></li>
-      <li role="none"><a role="menuitem" href="reviews.html" aria-current="page">Reviews</a></li>
-      <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
-      <li role="none"><a class="cta-btn" href="products.html">Shop Now</a></li>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="reviews.html" class="active">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- MAIN -->
+  <!-- Main -->
   <main id="main" class="section" role="main" aria-labelledby="reviews-heading">
     <header style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
       <div>
         <h1 id="reviews-heading">International Reviews & Testimonials</h1>
-        <p class="small-note">Farmer feedback, NGO trials, and expert reviews from around the world.</p>
+        <p class="small-note">Farmer feedback, NGO trials, and expert reviews worldwide.</p>
       </div>
-
-      <!-- Quick filters (non-functional placeholder - you may wire JS) -->
-      <div style="display:flex;gap:8px;align-items:center">
-        <label for="filter-country" class="small-note" style="margin-right:6px">Filter by country:</label>
+      <div class="filter-container">
+        <label for="filter-country" class="small-note">Filter by country:</label>
         <select id="filter-country" aria-label="Filter reviews by country">
           <option value="">All</option>
           <option value="in">India</option>
@@ -56,87 +213,63 @@
       </div>
     </header>
 
-    <!-- Review grid -->
-    <section aria-label="Reviews list" style="margin-top:18px">
+    <section aria-label="Reviews list">
       <div class="reviews-grid">
-
-        <!-- REVIEW CARD 1 -->
-        <article class="review-card" tabindex="0" aria-labelledby="r1-title" aria-describedby="r1-desc">
+        <!-- Review Card 1 -->
+        <article class="review-card" tabindex="0">
           <img src="img/farmericon.png.png" alt="Profile of Maria">
           <div>
-            <h3 id="r1-title">Maria González — Farmer, Spain</h3>
-            <p id="r1-desc">“After switching to OrganicCare vermicompost, our greenhouse tomatoes had heavier fruits, and water retention improved. Local yield went up ~18% in 3 months.”</p>
-            <p style="margin-top:8px;color:var(--muted)">Verified purchase • Jan 2025</p>
+            <h3>Maria González — Farmer, Spain</h3>
+            <p>“After switching to OrganicCare vermicompost, greenhouse tomatoes had heavier fruits and water retention improved. Yield went up ~18% in 3 months.”</p>
+            <p class="review-date">Verified purchase • Jan 2025</p>
           </div>
         </article>
 
-        <!-- REVIEW CARD 2 -->
-        <article class="review-card" tabindex="0" aria-labelledby="r2-title" aria-describedby="r2-desc">
+        <!-- Review Card 2 -->
+        <article class="review-card" tabindex="0">
           <img src="img/farmericon.png.png" alt="Profile of Hiroshi">
           <div>
-            <h3 id="r2-title">Hiroshi Watanabe — Organic Farm, Japan</h3>
-            <p id="r2-desc">“Excellent quality and consistent nutrient profile. The neem booster reduced pest damage without harming beneficial insects.”</p>
-            <p style="margin-top:8px;color:var(--muted)">Field trial • Nov 2024</p>
+            <h3>Hiroshi Watanabe — Organic Farm, Japan</h3>
+            <p>“Excellent quality and consistent nutrient profile. Neem booster reduced pest damage without harming beneficial insects.”</p>
+            <p class="review-date">Field trial • Nov 2024</p>
           </div>
         </article>
 
-        <!-- REVIEW CARD 3 -->
-        <article class="review-card" tabindex="0" aria-labelledby="r3-title" aria-describedby="r3-desc">
+        <!-- Review Card 3 -->
+        <article class="review-card" tabindex="0">
           <img src="img/farmericon.png.png" alt="Profile of Daniel">
           <div>
-            <h3 id="r3-title">Daniel Smith — Horticulturalist, USA</h3>
-            <p id="r3-desc">“Natural and easy-to-use. Great customer support and helpful guidance for smallholder farmers.”</p>
-            <p style="margin-top:8px;color:var(--muted)">Independent review • Aug 2024</p>
+            <h3>Daniel Smith — Horticulturalist, USA</h3>
+            <p>“Natural and easy-to-use. Great customer support and helpful guidance for smallholder farmers.”</p>
+            <p class="review-date">Independent review • Aug 2024</p>
           </div>
         </article>
 
-        <!-- REVIEW CARD 4 (NGO Trial) -->
-        <article class="review-card" tabindex="0" aria-labelledby="r4-title" aria-describedby="r4-desc">
+        <!-- Review Card 4 -->
+        <article class="review-card" tabindex="0">
           <img src="img/farmericon.png.png" alt="Profile of NGO reviewer">
           <div>
-            <h3 id="r4-title">GreenEarth NGO — Pilot Trial (India)</h3>
-            <p id="r4-desc">“Pilot with 50 farmers showed improved soil organic matter and reduced fertilizer costs by 22% over two seasons.”</p>
-            <p style="margin-top:8px;color:var(--muted)">NGO report • Sep 2024</p>
+            <h3>GreenEarth NGO — Pilot Trial (India)</h3>
+            <p>“Pilot with 50 farmers showed improved soil organic matter and reduced fertilizer costs by 22% over two seasons.”</p>
+            <p class="review-date">NGO report • Sep 2024</p>
           </div>
         </article>
 
-        <!-- REVIEW CARD 5 -->
-        <article class="review-card" tabindex="0" aria-labelledby="r5-title" aria-describedby="r5-desc">
+        <!-- Review Card 5 -->
+        <article class="review-card" tabindex="0">
           <img src="img/farmericon.png.png" alt="Profile of Marco">
           <div>
-            <h3 id="r5-title">Marco Rossi — Agronomist, Italy</h3>
-            <p id="r5-desc">“The compost blend improved soil tilth and structure quickly. Recommended for small orchards.”</p>
-            <p style="margin-top:8px;color:var(--muted)">Expert review • May 2024</p>
+            <h3>Marco Rossi — Agronomist, Italy</h3>
+            <p>“The compost blend improved soil tilth and structure quickly. Recommended for small orchards.”</p>
+            <p class="review-date">Expert review • May 2024</p>
           </div>
         </article>
-
-        <!-- Add more review cards as needed (keep the same structure & aria attributes) -->
-
       </div>
     </section>
-
-    <!-- References and published trials -->
-    <section aria-labelledby="refs-heading" style="margin-top:28px">
-      <h2 id="refs-heading">Published Trials & References</h2>
-      <p class="small-note" style="margin-top:8px">
-        ACTION: Replace these placeholders with real links to published trials, NGO reports, and international certifications.
-      </p>
-
-      <ul style="margin-top:12px;line-height:1.6;color:var(--muted)">
-        <li><a href="#" target="_blank" rel="noopener">GreenEarth Pilot Trial — Soil Organic Matter Study (PDF)</a></li>
-        <li><a href="#" target="_blank" rel="noopener">University of Valencia — Vermicompost Effects on Tomato Yield (Journal)</a></li>
-        <li><a href="#" target="_blank" rel="noopener">Japan Farm Research — Neem Booster Field Test (Report)</a></li>
-      </ul>
-
-      <p class="small-note" style="margin-top:12px">
-        Tip: Host your trial reports as PDFs (e.g., `/docs/trial-report-2024.pdf`) and link them here for credibility.
-      </p>
-    </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer role="contentinfo" style="margin-top:32px">
+  <!-- Footer -->
+  <footer role="contentinfo">
     <div class="container">
       <p>© 2025 OrganicCare — Growing with Nature.</p>
     </div>

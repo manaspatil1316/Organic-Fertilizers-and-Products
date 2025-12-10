@@ -5,8 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products - Organic Fertilizers & Products</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        /* ======= Product Section Styles ======= */
+        .product-tools {
+            padding: 25px 6%;
+            background: #f3f9f4;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tools-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tools-row input,
+        .tools-row select {
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 6%;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 15px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0 6px;
+            font-size: 18px;
+            color: #1b8833;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .price-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #2e7d32;
+            font-size: 16px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn, .btn-outline {
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .btn {
+            background: #2e7d32;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background: #1b5e20;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #2e7d32;
+            color: #2e7d32;
+        }
+
+        .btn-outline:hover {
+            background: #2e7d32;
+            color: #fff;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .product-badge.best { background: #ff9800; }
+        .product-badge.new { background: #4caf50; }
+        .product-badge.organic { background: #1b8833; }
+
+        @media (max-width: 768px) {
+            .tools-row {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <!-- ================= NAVBAR ================= -->
     <nav class="navbar">
         <div class="logo">Organic<span>Farm</span></div>
@@ -18,83 +159,84 @@
         </ul>
     </nav>
 
-    <!-- ================= PRODUCTS HERO ================= -->
-    <section class="products-hero">
-        <!-- NOTE: Background image will be added through CSS -->
-        <div class="products-hero-content">
-            <h1>Our Organic Products</h1>
-            <p>Premium, chemical-free fertilizers made to enrich your soil naturally.</p>
-        </div>
-    </section>
+    <!-- ================= PRODUCT ACTION BAR ================= -->
+    <section class="product-tools">
+        <h2>Our Best-Selling Products</h2>
 
-    <!-- ================= PRODUCT CATEGORIES ================= -->
-    <section class="product-categories">
-        <h2>Product Categories</h2>
-        <div class="categories-container">
-            <div class="category-card">
-                <!-- Replace img.png with category icon -->
-                <img src="img/compost02.png" alt="Compost" height="300" width="500"/>
-                <h3>Organic Compost</h3>
-            </div>
-            <div class="category-card">
-                <img src="img/org-fertilizeres.jpeg" alt="Bio Fertilizer" height="300" width="500"/>
-                <h3>Bio Fertilizers</h3>
-            </div>
-            <div class="category-card">
-                <img src="img/bio-fert.png" alt="Pesticides" height="300" width="500"/>
-                <h3>Natural Pesticides</h3>
-            </div>
+        <div class="tools-row">
+            <!-- Search -->
+            <input type="text" class="search-bar" placeholder="Search products...">
+
+            <!-- Category Filter -->
+            <select class="filter-select">
+                <option value="">All Categories</option>
+                <option value="compost">Organic Compost</option>
+                <option value="bio">Bio Fertilizers</option>
+                <option value="pesticide">Natural Pesticides</option>
+            </select>
+
+            <!-- Sort -->
+            <select class="sort-select">
+                <option value="">Sort By</option>
+                <option value="low-high">Price: Low → High</option>
+                <option value="high-low">Price: High → Low</option>
+                <option value="popular">Most Popular</option>
+            </select>
         </div>
     </section>
 
     <!-- ================= PRODUCT LIST ================= -->
     <section class="products-section">
-        <h2>Our Best-Selling Products</h2>
-
         <div class="products-container">
+
             <!-- PRODUCT CARD 1 -->
-            <div class="product-card">
+            <div class="product-card" data-category="compost" data-price="249">
+                <span class="product-badge best">Best Seller</span>
                 <img src="img/bio-bag.png" alt="Organic Compost Bag" />
                 <h3>Premium Organic Compost</h3>
-                <p>Made from fully decomposed natural waste. Best for soil health & crop growth.</p>
-                <button class="btn">View Details</button>
+                <p>Improves soil structure, water retention & root growth.</p>
+                <div class="price-row">
+                    <span class="price">₹249</span>
+                    <span class="old-price">₹349</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn">Add to Cart</button>
+                    <a href="product-details.html" class="btn-outline">View Details</a>
+                </div>
             </div>
 
             <!-- PRODUCT CARD 2 -->
-            <div class="product-card">
+            <div class="product-card" data-category="bio" data-price="180">
+                <span class="product-badge new">New Arrival</span>
                 <img src="img/bio-bottle.jpeg" alt="Bio Fertilizer Bottle" />
                 <h3>Liquid Bio Fertilizer</h3>
-                <p>Boosts plant immunity and increases nutrient absorption naturally.</p>
-                <button class="btn">View Details</button>
+                <p>Boosts plant immunity and nutrient absorption naturally.</p>
+                <div class="price-row">
+                    <span class="price">₹180</span>
+                    <span class="old-price">₹220</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn">Add to Cart</button>
+                    <a href="product-details.html" class="btn-outline">View Details</a>
+                </div>
             </div>
 
             <!-- PRODUCT CARD 3 -->
-            <div class="product-card">
+            <div class="product-card" data-category="pesticide" data-price="199">
+                <span class="product-badge organic">100% Organic</span>
                 <img src="img/pesticid.png" alt="Pesticide" />
                 <h3>Herbal Pest Repellent</h3>
-                <p>100% herbal spray that protects crops without harming soil or humans.</p>
-                <button class="btn">View Details</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================== ORGANIC CERTIFICATION ================== -->
-    <section class="certification-section">
-        <h2>International Organic Certifications</h2>
-        <div class="certification-container">
-            
-            
-            <div class="cert-card">
-                <img src="img/cert.png" alt="India Organic" />
-                <h3>India Organic</h3>
-                <p>
-                    <li> Approved by the Government of India for authentic organic production.</li>
-                    <li>Recognized across Europe for sustainable farming and mineral-free fertilizers.</li>
-                    
-                   </p>
+                <p>Protects crops with safe herbal ingredients, no chemicals.</p>
+                <div class="price-row">
+                    <span class="price">₹199</span>
+                    <span class="old-price">₹260</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn">Add to Cart</button>
+                    <a href="product-details.html" class="btn-outline">View Details</a>
+                </div>
             </div>
 
-            
         </div>
     </section>
 
@@ -102,5 +244,48 @@
     <footer>
         <p>© 2025 Organic Fertilizers & Products. All Rights Reserved.</p>
     </footer>
+
+    <!-- ================= PRODUCT JS FUNCTIONALITY ================= -->
+    <script>
+        const searchInput = document.querySelector(".search-bar");
+        const categoryFilter = document.querySelector(".filter-select");
+        const sortSelect = document.querySelector(".sort-select");
+        const products = document.querySelectorAll(".product-card");
+
+        function filterProducts() {
+            const searchText = searchInput.value.toLowerCase();
+            const category = categoryFilter.value;
+            const sortOption = sortSelect.value;
+
+            let productArray = Array.from(products);
+
+            // Filter by category and search
+            productArray.forEach(product => {
+                const title = product.querySelector("h3").textContent.toLowerCase();
+                const matchSearch = title.includes(searchText);
+                const matchCategory = category === "" || product.dataset.category === category;
+                product.style.display = matchSearch && matchCategory ? "block" : "none";
+            });
+
+            // Sort by price
+            if (sortOption) {
+                const container = document.querySelector(".products-container");
+                productArray = productArray.filter(p => p.style.display !== "none");
+
+                if (sortOption === "low-high") {
+                    productArray.sort((a,b) => a.dataset.price - b.dataset.price);
+                } else if (sortOption === "high-low") {
+                    productArray.sort((a,b) => b.dataset.price - a.dataset.price);
+                }
+
+                productArray.forEach(p => container.appendChild(p));
+            }
+        }
+
+        searchInput.addEventListener("input", filterProducts);
+        categoryFilter.addEventListener("change", filterProducts);
+        sortSelect.addEventListener("change", filterProducts);
+    </script>
+
 </body>
 </html>

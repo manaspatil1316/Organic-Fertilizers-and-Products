@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — OrganicCare</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">OrganicCare</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html" class="active">Cart</a></li>
+    </ul>
+  </nav>
+
+  <section class="section">
+    <h2>Your Cart</h2>
+    <div id="cart-container"></div>
+    <div class="center">
+      <strong>Total: ₹<span id="cart-total">0</span></strong>
+      <button class="btn" id="checkout-btn">Checkout</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 OrganicCare — Growing with Nature.</p>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.getElementById("cart-container");
+    const totalEl = document.getElementById("cart-total");
+
+    function renderCart() {
+      container.innerHTML = "";
+      let total = 0;
+      if(cart.length === 0){
+        container.innerHTML = "<p>Your cart is empty.</p>";
+      } else {
+        cart.forEach((item, index) => {
+          total += item.price * item.quantity;
+          container.innerHTML += `
+            <div class="cart-item">
+              <h3>${item.name}</h3>
+              <p>Price: ₹${item.price} x ${item.quantity}</p>
+              <button class="btn remove-item" data-index="${index}">Remove</button>
+            </div>
+          `;
+        });
+      }
+      totalEl.textContent = total;
+    }
+
+    container.addEventListener("click", e => {
+      if(e.target.classList.contains("remove-item")){
+        const index = e.target.dataset.index;
+        cart.splice(index,1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+      }
+    });
+
+    document.getElementById("checkout-btn").addEventListener("click", () => {
+      alert("Thank you for your purchase!");
+      cart = [];
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    });
+
+    renderCart();
+  </script>
+
+</body>
+
+</html>

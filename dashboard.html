@@ -5,154 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farmer Dashboard — OrganicCare</title>
 
-  <!-- Main Website Style -->
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Dashboard Styling -->
-  <style>
-    :root {
-      --primary: #2e7d32;
-      --light-bg: #f7fdf9;
-      --dark-bg: #1c1c1c;
-      --dark-card: #2a2a2a;
-      --dark-text: #e6e6e6;
-    }
-
-    body {
-      background: var(--light-bg);
-      font-family: Arial;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    body.dark {
-      background: var(--dark-bg);
-      color: var(--dark-text);
-    }
-
-    .dashboard-container {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-      width: 260px;
-      background: var(--primary);
-      color: white;
-      padding: 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    body.dark .sidebar {
-      background: #145a1e;
-    }
-
-    .sidebar a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      display: block;
-      padding: 10px;
-      border-radius: 8px;
-    }
-
-    /* MAIN CONTENT */
-    .main-content {
-      margin-left: 260px;
-      padding: 25px;
-      width: 100%;
-    }
-
-    .topbar {
-      background: white;
-      padding: 15px 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    body.dark .topbar {
-      background: var(--dark-card);
-      color: var(--dark-text);
-    }
-
-    .toggle-btn {
-      padding: 10px 18px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .profile-card, .wallet-card, .order-card {
-      background: white;
-      padding: 20px;
-      margin-top: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    body.dark .profile-card,
-    body.dark .wallet-card,
-    body.dark .order-card {
-      background: var(--dark-card);
-      color: var(--dark-text);
-      box-shadow: none;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .info-box {
-      background: #fff;
-      padding: 18px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    body.dark .info-box {
-      background: var(--dark-card);
-      color: var(--dark-text);
-      box-shadow: none;
-    }
-
-    /* WALLET */
-    .wallet-grid, .order-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-
-    /* ORDER ITEM */
-    .order-item {
-      padding: 12px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-    }
-
-    body.dark .order-item {
-      background: var(--dark-card);
-      color: var(--dark-text);
-    }
-
-    @media (max-width: 768px) {
-      .wallet-grid, .order-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <!-- CSS FILE -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -161,14 +15,16 @@
 
   <!-- SIDEBAR -->
   <div class="sidebar">
-    <h2>OrganicCare</h2>
+    <h2 style="color:bisque;">Organic Fertilizers and Products</h2>
+
     <ul>
-        <li><a href="contact.html">Contact</a></li>
       <li><a href="farmer-dashboard.html">🏡 Dashboard</a></li>
-      <li><a href="#">🌱 My Crops</a></li>
+      <li><a href="#">🌾 My Crops</a></li>
       <li><a href="#">📊 Soil Report</a></li>
-      <li><a href="#">💧 Irrigation Tips</a></li>
+      <li><a href="#">☁ Weather</a></li>
+      <li><a href="#">📈 Crop Analytics</a></li>
       <li><a href="products.html">🛒 Buy Products</a></li>
+      <li><a href="#">🔔 Notifications</a></li>
       <li><a href="contact.html">📞 Support</a></li>
       <li><a href="login.html">🚪 Logout</a></li>
     </ul>
@@ -177,148 +33,55 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
 
-    <!-- TOPBAR -->
     <div class="topbar">
-      <h2>Welcome, Farmer!</h2>
-      <button class="toggle-btn" id="darkToggle">🌙 Dark Mode</button>
+      <h2>👋 Welcome, Farmer Manas!</h2>
+      <button id="darkToggle" class="toggle-btn">🌙 Dark Mode</button>
     </div>
 
-    <!-- PROFILE CARD -->
-    <div class="profile-card">
-      <h3>Farmer Information</h3>
+    <!-- FARMER PROFILE -->
+    <div class="card">
+      <h3 class="section-title">🌾 Farmer Profile</h3>
 
-      <div class="info-grid">
+      <div class="grid-3">
         <div class="info-box"><h4>👤 Name</h4><p id="farmerName">Loading...</p></div>
         <div class="info-box"><h4>📞 Mobile</h4><p id="farmerMobile">Loading...</p></div>
-        <div class="info-box"><h4>🌾 Land Size</h4><p id="farmerLand">Loading...</p></div>
         <div class="info-box"><h4>🌱 Main Crop</h4><p id="farmerCrop">Loading...</p></div>
+        <div class="info-box"><h4>🌾 Land Size</h4><p id="farmerLand">Loading...</p></div>
         <div class="info-box"><h4>🌡 Weather</h4><p id="weatherInfo">Loading...</p></div>
         <div class="info-box"><h4>🧪 Soil Health</h4><p id="soilHealth">Loading...</p></div>
       </div>
     </div>
 
-    <!-- 💰 WALLET SECTION -->
-    <div class="wallet-card">
-      <h3>💰 My Wallet</h3>
+    <!-- WALLET -->
+    <div class="card">
+      <h3 class="section-title">💰 Wallet Overview</h3>
 
-      <div class="wallet-grid">
-        <div class="info-box">
-          <h4>💵 Current Balance</h4>
-          <p id="walletBalance">Loading...</p>
-        </div>
-
-        <div class="info-box">
-          <h4>📅 Last Payment</h4>
-          <p id="lastPayment">Loading...</p>
-        </div>
-
-        <div class="info-box">
-          <h4>🧾 Upcoming Payment</h4>
-          <p id="upcomingPayment">Loading...</p>
-        </div>
-
-        <div class="info-box">
-          <h4>📜 Payment History</h4>
-          <p id="paymentHistory">Loading...</p>
-        </div>
+      <div class="grid-2">
+        <div class="info-box"><h4>💵 Balance</h4><p id="walletBalance">Loading...</p></div>
+        <div class="info-box"><h4>📅 Last Payment</h4><p id="lastPayment">Loading...</p></div>
+        <div class="info-box"><h4>🧾 Upcoming Payment</h4><p id="upcomingPayment">Loading...</p></div>
+        <div class="info-box"><h4>📜 Payment History</h4><p id="paymentHistory">Loading...</p></div>
       </div>
     </div>
 
-    <!-- 📦 ORDERS SECTION -->
-    <div class="order-card">
-      <h3>📦 My Orders</h3>
+    <!-- ORDERS -->
+    <div class="card">
+      <h3 class="section-title">📦 Recent Orders</h3>
+      <div class="grid-2" id="orderList"></div>
+    </div>
 
-      <div class="order-grid" id="orderList">
-        <!-- JS will load orders -->
-      </div>
+    <!-- NOTIFICATIONS -->
+    <div class="card">
+      <h3 class="section-title">🔔 Notifications</h3>
+      <div id="notifList"></div>
     </div>
 
   </div>
 
 </div>
 
-<!-- 🔥 DARK MODE + API SCRIPT -->
-<script>
-  // DARK MODE
-  document.getElementById("darkToggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    darkToggle.innerText = document.body.classList.contains("dark")
-      ? "☀ Light Mode"
-      : "🌙 Dark Mode";
-  });
-
-  // WEATHER API (Open-Meteo)
-  async function loadWeather() {
-    let res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=19.75&longitude=75.71&current=temperature_2m");
-    let data = await res.json();
-    document.getElementById("weatherInfo").innerText =
-      data.current.temperature_2m + "°C (Live)";
-  }
-  loadWeather();
-
-  // SOIL (Mock)
-  function loadSoil() {
-    document.getElementById("soilHealth").innerText =
-      "Good (pH 6.5 • Moisture 42%)";
-  }
-  loadSoil();
-
-  // FARMER INFO (Mock)
-  function loadFarmer() {
-    const farmer = {
-      name: "Manas Patil",
-      mobile: "9876543210",
-      land: "3.5 Acres",
-      crop: "Wheat & Sugarcane"
-    };
-
-    farmerName.innerText = farmer.name;
-    farmerMobile.innerText = farmer.mobile;
-    farmerLand.innerText = farmer.land;
-    farmerCrop.innerText = farmer.crop;
-  }
-  loadFarmer();
-
-  // WALLET DATA (Mock API)
-  function loadWallet() {
-    const wallet = {
-      balance: "₹1,850",
-      lastPayment: "₹450 — Organic Nitrogen Booster",
-      upcoming: "₹799 — Soil Health Enhancer",
-      history: "₹450, ₹1200, ₹380"
-    };
-
-    walletBalance.innerText = wallet.balance;
-    lastPayment.innerText = wallet.lastPayment;
-    upcomingPayment.innerText = wallet.upcoming;
-    paymentHistory.innerText = wallet.history;
-  }
-  loadWallet();
-
-  // ORDERS DATA (Mock API)
-  function loadOrders() {
-    const orders = [
-      { item: "Organic Nitrogen Booster", date: "12 Nov 2025", status: "Delivered" },
-      { item: "Soil Health Enhancer", date: "02 Nov 2025", status: "In Transit" },
-      { item: "Premium Organic Seeds Pack", date: "25 Oct 2025", status: "Delivered" }
-    ];
-
-    let list = "";
-
-    orders.forEach(o => {
-      list += `
-        <div class="order-item">
-          <h4>🌿 ${o.item}</h4>
-          <p><strong>Date:</strong> ${o.date}</p>
-          <p><strong>Status:</strong> ${o.status}</p>
-        </div>
-      `;
-    });
-
-    document.getElementById("orderList").innerHTML = list;
-  }
-  loadOrders();
-</script>
+<!-- EXTERNAL JS -->
+<script src="script.js"></script>
 
 </body>
 </html>

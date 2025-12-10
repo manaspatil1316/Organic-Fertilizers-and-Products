@@ -1,58 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Organic Fertilizers & Products — OrganicCare</title>
 
-  <!-- ACTION: Linking external stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- SEO -->
+  <meta name="description" content="OrganicCare offers pure organic fertilizers, composts, vermicompost, neem boosters, and eco-friendly products for sustainable farming." />
+  <meta name="keywords" content="organic fertilizers, compost, vermicompost, neem fertilizer, eco-friendly farming" />
 
-  <!-- ACTION: Favicon -->
-  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <link rel="icon" type="image/png" href="img/favicon.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="OrganicCare — Organic Fertilizers & Sustainable Farming" />
+  <meta property="og:description" content="Buy premium organic fertilizers trusted by farmers worldwide." />
+  <meta property="og:image" content="img/hero.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Favicon -->
+   
+  <link rel="icon" type="image/png" href="img/favicon.png" />
 </head>
 
 <body>
+  <!-- HAMBURGER ICON -->
+<div id="hamburger" class="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <h2 style="color:bisque;">Organic Fertilizers and Products</h2>
+
+  <ul>
+    <li><a href="farmer-dashboard.html">🏡 Dashboard</a></li>
+    <li><a href="#">🌾 My Crops</a></li>
+    <li><a href="#">📊 Soil Report</a></li>
+    <li><a href="#">☁ Weather</a></li>
+    <li><a href="#">📈 Crop Analytics</a></li>
+    <li><a href="products.html">🛒 Buy Products</a></li>
+    <li><a href="#">🔔 Notifications</a></li>
+    <li><a href="contact.html">📞 Support</a></li>
+    <li><a href="login.html">🚪 Logout</a></li>
+  </ul>
+</div>
+
+<!-- OVERLAY -->
+<div id="overlay"></div>
+
+  
 
   <!-- ============================================
-       NAVBAR (Appears on all pages)
-       ============================================ -->
-  <nav class="navbar">
-    <!-- ACTION: LOGO SVG -->
-    <a href="index.html" class="logo">
-      <img src="img/Logo.png.png" alt="Organic Products Logo" height="50";width="50"; >
+       NAVBAR (Sticky + Improved UX)
+  ============================================ -->
+  <nav class="navbar" role="navigation">
+    <a href="index.html" class="logo" aria-label="OrganicCare Logo">
+      <img src="img/Logo.png.png" height="50" width="50" alt="OrganicCare logo" loading="lazy" />
     </a>
+    
 
-    <div class="hamburger" id="hamburger">
+    <!-- <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
-    </div>
+    </button> -->
+    <!-- <label>
+      <div class="slide">
+        <h1>Menu</h1>
+        <ul>
+            <li><a href="login01.html" ><i class="fas fa-tv"></i>Login</a></li>
+            <li><a href="index.html" ><i class="fas fa-tv"></i>Login</a></li>
+           
+            <li><a href="products.html" ><i class="fas fa-tv"></i>Products</a></li>
+            <li><a href="about.html" ><i class="fas fa-tv"></i>About</a></li>
+            <li><a href="reviews.html" ><i class="fas fa-tv"></i>reviews</a></li>
+            <li><a href="contact.html" ><i class="fas fa-tv"></i>Contact</a></li>
+        <li><a href="dashboard.html" ><i class="fas fa-tv"></i>Dashboard</a></li>
+        </ul>
+      </div>
+          </label> -->
+
+
+          
+
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a class="cta-btn" href="products.html">Shop Now</a></li>
-      <!-- ===== TOP-RIGHT LOGIN + DASHBOARD BOXES ===== -->
-<div class="top-right-boxes">
-  <a href="login01.html" class="top-box">🔐 Login</a>
-  <a href="dashboard.html" class="top-box">📊 Dashboard</a>
-</div>
-      
-    </ul>
-    <!-- ===== TOP-RIGHT LOGIN + DASHBOARD BOXES =====
-<div class="top-right-boxes">
-  <a href="login01.html" class="top-box">🔐 Login</a>
-  <a href="dashboard.html" class="top-box">📊 Dashboard</a>
-</div> -->
 
+      <div class="top-right-boxes">
+        <a href="login01.html" class="top-box">🔐 Login</a>
+        <a href="dashboard.html" class="top-box">📊 Dashboard</a>
+      </div>
+    </ul>
+    <!-- Cart Icon -->
+    <a href="cart.html" class="cart-icon" id="cart-icon" aria-label="View Cart">
+      🛒 <span id="cart-count">0</span>
+    </a>
   </nav>
+  
 
   <!-- ============================================
-       HERO SECTION
-       ============================================ -->
+       HERO SECTION — More Engaging, CTA Upgraded
+  ============================================ -->
   <header id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-text">
@@ -65,122 +121,142 @@
         </div>
 
         <p class="small-note">
-          Free delivery on orders above ₹999 within India.  
-          Worldwide shipping available.
+          Free delivery above ₹999 within India • Worldwide shipping available
         </p>
       </div>
 
-      <!-- ACTION: HERO IMAGE -->
       <div class="hero-media">
-        <!-- <img src="img/hero.png" alt="Organic Farming Hero Image"> -->
+        <img src="img/hero.png" alt="Organic farming fields" loading="lazy" />
       </div>
     </div>
   </header>
 
+  <header>
+    <div class="logo">My Website</div>
+
+    <!-- Hamburger Icon -->
+    <div id="hamburger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <!-- Nav Links -->
+    <nav id="navLinks">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./cart.html">Services</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </header>
+
   <!-- ============================================
-       FEATURED PRODUCTS PREVIEW
-       ============================================ -->
+      FEATURED PRODUCTS — UX & Shadow Improved
+  ============================================ -->
   <section id="products" class="section">
     <h2>Featured Products</h2>
 
     <div class="products-grid">
 
-      <!-- PRODUCT 1 -->
       <article class="product-card">
-        <img src="img/organic-compost.png" alt="Organic Compost" height="200" width="200">
+        <img src="img/organic-compost.png" alt="Organic Compost" loading="lazy">
         <h3>Organic Compost</h3>
-        <p>Rich, slow-release organic matter that improves soil structure.</p>
+        <p>Rich, slow-release organic matter that improves soil texture.</p>
         <div class="product-meta">
           <strong>₹250 / 5kg</strong>
-          <a href="products.html" class="btn">Buy</a>
+          <button class="btn">Buy</button>
         </div>
       </article>
 
-      <!-- PRODUCT 2 -->
       <article class="product-card">
-        <img src="img/vermi-compost.png" alt="Vermicompost" height="200" width="200">
+        <img src="img/vermi-compost.png" alt="Vermicompost" loading="lazy">
         <h3>Vermicompost</h3>
-        <p>Microbial-rich castings created by earthworms.</p>
+        <p>Microbial-rich castings created naturally by earthworms.</p>
         <div class="product-meta">
           <strong>₹350 / 5kg</strong>
-          <a href="products.html" class="btn">Buy</a>
+          <button class="btn">Buy</button>
         </div>
       </article>
 
-      <!-- PRODUCT 3 -->
       <article class="product-card">
-        <img src="img/Neem-Booster.png.jpeg" alt="Neem Fertilizer" height="200" width="200">
+        <img src="img/Neem-Booster.png.jpeg" alt="Neem Booster" loading="lazy">
         <h3>Neem Booster</h3>
-        <p>Natural pest control and nutrient-packed concentrate.</p>
+        <p>Natural pest control & nutrient-packed organic concentrate.</p>
         <div class="product-meta">
           <strong>₹199 / 1L</strong>
-          <a href="products.html" class="btn">Buy</a>
+          <button class="btn">Buy</button>
         </div>
       </article>
 
+     
+
+      
     </div>
 
-    <div style="text-align:center;margin-top:20px;">
-      <a href="products.html" class="ghost">View All Products →</a>
-    </div>
+    
   </section>
 
   <!-- ============================================
-       ABOUT PREVIEW
-       ============================================ -->
+      ABOUT PREVIEW
+  ============================================ -->
   <section id="about-preview" class="section">
     <div class="about">
-      <img src="img/farm_about.png" alt="About OrganicCare">
+      <img src="img/farm_about.png" alt="Organic farming team" loading="lazy">
 
       <div>
         <h2>About Us</h2>
-        <p>We are committed to sustainable farming, working with certified organic inputs and offering farmer support programs worldwide.</p>
-
+        <p>We promote sustainable agriculture through 100% organic inputs and passionate farmer support programs.</p>
         <a href="about.html" class="btn">Read More</a>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       REVIEWS PREVIEW
-       ============================================ -->
+      REVIEWS — Cleaner Layout
+  ============================================ -->
   <section class="section">
     <h2>Trusted by Farmers Worldwide</h2>
 
     <div class="reviews-grid">
       <div class="review-card">
-        <img src="img/farmericon.png.png">
+        <img src="img/farmericon.png.png" alt="Farmer icon">
         <p>“Our tomato yield improved by 18%!”</p>
         <strong>— Maria, Spain</strong>
       </div>
 
       <div class="review-card">
-        <img src="img/farmericon.png.png">
+        <img src="img/farmericon.png.png" alt="Farmer icon">
         <p>“Best quality and excellent service.”</p>
         <strong>— Hiroshi, Japan</strong>
       </div>
 
       <div class="review-card">
-        <img src="img/farmericon.png.png">
+        <img src="img/farmericon.png.png" alt="Farmer icon">
         <p>“Natural, effective, and easy to use.”</p>
         <strong>— Daniel, USA</strong>
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:20px;">
+    <div class="center">
       <a href="reviews.html" class="ghost">Read Full Reviews →</a>
     </div>
   </section>
 
   <!-- ============================================
-       FOOTER
-       ============================================ -->
-  <footer>
-    © 2025 OrganicCare — Growing with Nature.
+      FOOTER — Added Contact + Social Links
+  ============================================ -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 OrganicCare — Growing with Nature.</p>
+
+      <div class="footer-links">
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+      </div>
+    </div>
   </footer>
 
-  <!-- ACTION: External JS -->
   <script src="script.js"></script>
-
 </body>
 </html>
